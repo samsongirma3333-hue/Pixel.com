@@ -1,275 +1,108 @@
+
 <!DOCTYPE html>
 <html lang="am">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Pixel Academy | የቪዲዮ ኤዲቲንግ ስልጠና</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Ethio Pixel Academy | Samson Girma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #ff4b2b;
-            --secondary-color: #ff416c;
-            --dark-color: #1a1a1a;
-            --light-color: #ffffff;
-            --gray-color: #f4f4f4;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--gray-color);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--dark-color);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .logo {
-            color: var(--light-color);
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 5rem 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            background: white;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 10px;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        /* Courses/Software Section */
-        .software {
-            padding: 5rem 10%;
-            background: var(--gray-color);
-            text-align: center;
-        }
-
-        .section-title {
-            margin-bottom: 3rem;
-            font-size: 2rem;
-        }
-
-        .software-grid {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .software-item {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            width: 150px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .software-item img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
-        }
-
-        /* Call to Action Section */
-        .cta-section {
-            background: var(--dark-color);
-            color: white;
-            padding: 5rem 10%;
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            background: #111;
-            color: #888;
-            padding: 2rem 5%;
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-
-        .social-links {
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* Simplified for demo */
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0b0f1a; color: #e2e8f0; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .active-tab { border-bottom: 3px solid #10b981; color: #10b981; }
+        .watermark { position: absolute; top: 20%; left: 10%; opacity: 0.15; pointer-events: none; font-size: 14px; animation: moveWatermark 10s linear infinite alternate; }
+        @keyframes moveWatermark { from { top: 10%; left: 10%; } to { top: 80%; left: 70%; } }
+        .sidebar-link:hover { background: #1e293b; border-radius: 8px; }
     </style>
 </head>
-<body>
+<body class="min-h-screen">
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">Ethio<span>Pixel</span></a>
-        <ul class="nav-links">
-            <li><a href="#home">መነሻ</a></li>
-            <li><a href="#about">ስለ እኛ</a></li>
-            <li><a href="#courses">ስልጠናዎች</a></li>
-            <li><a href="#contact">ይገናኙን</a></li>
-        </ul>
+    <!-- Top Navigation -->
+    <nav class="glass sticky top-0 z-50 px-6 py-3 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center gap-2">
+            <div class="bg-green-600 p-2 rounded-lg text-white font-bold text-xl shadow-lg shadow-green-900/20">EP</div>
+            <span class="text-xl font-extrabold tracking-tighter">ETHIO-PIXEL <span class="text-green-500 text-sm">ACADEMY</span></span>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <div class="hidden md:flex flex-col items-end">
+                <span class="text-[10px] text-gray-500 uppercase tracking-widest">የእርስዎ ነጥብ</span>
+                <span class="text-yellow-500 font-bold flex items-center gap-1">
+                    <i class="fas fa-bolt text-xs"></i> 2,450 PIXEL POINTS
+                </span>
+            </div>
+            <div class="h-10 w-10 bg-gradient-to-tr from-green-600 to-blue-600 rounded-full flex items-center justify-center font-bold border-2 border-gray-700">
+                SG
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>ፕሮፌሽናል የቪዲዮ ኤዲቲንግ ይማሩ</h1>
-        <p>ከመሰረታዊ እስከ ከፍተኛ ደረጃ ያለውን የቪዲዮ ኤዲቲንግ ጥበብ በዘመናዊ ሶፍትዌሮች የታገዘ ስልጠና በኢትዮ ፒክሰል አካዳሚ ያግኙ።</p>
-        <a href="#contact" class="btn">አሁኑኑ ይመዝገቡ</a>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="about">
-        <div class="feature-card">
-            <i class="fas fa-video"></i>
-            <h3>ተግባራዊ ስልጠና</h3>
-            <p>በፕሮጀክቶች ላይ የተመሰረተ እና እጅዎን የሚያስለምድ ተግባራዊ ትምህርት።</p>
-        </div>
-        <div class="feature-card">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <h3>ባለሙያ መምህራን</h3>
-            <p>በዘርፉ የረጅም ጊዜ ልምድ ካላቸው ባለሙያዎች ጋር ይማራሉ።</p>
-        </div>
-        <div class="feature-card">
-            <i class="fas fa-certificate"></i>
-            <h3>የምስክር ወረቀት</h3>
-            <p>ስልጠናውን ሲያጠናቅቁ በዓለም አቀፍ ደረጃ ተቀባይነት ያለው ሰርተፍኬት ያገኛሉ።</p>
-        </div>
-    </section>
-
-    <!-- Software Section -->
-    <section class="software" id="courses">
-        <h2 class="section-title">የምናስተምራቸው ሶፍትዌሮች</h2>
-        <div class="software-grid">
-            <div class="software-item">
-                <i class="fab fa-adobe" style="font-size: 3rem; color: #ff0000;"></i>
-                <p>Premiere Pro</p>
+    <div class="flex flex-col lg:flex-row">
+        
+        <!-- Side Sidebar (Menu) -->
+        <aside class="w-full lg:w-64 glass lg:h-[calc(100vh-65px)] p-4 flex flex-col gap-2">
+            <button onclick="switchTab('learning')" class="sidebar-link w-full text-left p-3 flex items-center gap-3 transition active-tab" id="btn-learning">
+                <i class="fas fa-play-circle w-5"></i> ትምህርቶች
+            </button>
+            <button onclick="switchTab('gigs')" class="sidebar-link w-full text-left p-3 flex items-center gap-3 transition text-gray-400" id="btn-gigs">
+                <i class="fas fa-briefcase w-5"></i> የስራ ቦርድ (Gig Board)
+            </button>
+            <button onclick="switchTab('affiliate')" class="sidebar-link w-full text-left p-3 flex items-center gap-3 transition text-gray-400" id="btn-affiliate">
+                <i class="fas fa-hand-holding-usd w-5"></i> የሪፈራል ገቢ
+            </button>
+            <hr class="border-gray-800 my-2">
+            <div class="p-3 bg-gray-900/50 rounded-xl border border-gray-800">
+                <p class="text-[11px] text-gray-500 mb-1 italic">ለቴክኒክ ድጋፍ</p>
+                <p class="text-xs font-bold text-green-400"><i class="fab fa-telegram"></i> @SamsonGirma</p>
             </div>
-            <div class="software-item">
-                <i class="fas fa-magic" style="font-size: 3rem; color: #00005a;"></i>
-                <p>After Effects</p>
-            </div>
-            <div cla
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-4 lg:p-8">
+
+            <!-- TAB 1: LEARNING INTERFACE -->
+            <div id="tab-learning" class="tab-content">
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                    <!-- Video & Details -->
+                    <div class="xl:col-span-2 space-y-6">
+                        <div class="relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800 aspect-video group">
+                            <!-- Anti-Piracy Watermark -->
+                            <div class="watermark text-white font-mono">
+                                Samson Girma (0912336391) <br> User ID: 8829-PX
+                            </div>
+                            
+                            <!-- Video Placeholder -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black">
+                                <i class="fas fa-play text-6xl text-green-500 cursor-pointer hover:scale-110 transition drop-shadow-3xl"></i>
+                                <p class="mt-4 text-gray-400 font-light">ክፍል 2፡ የቲክቶክ አልጎሪዝም ሚስጥሮች</p>
+                            </div>
+                        </div>
+
+                        <div class="glass p-6 rounded-2xl">
+                            <h2 class="text-2xl font-bold text-white mb-2">TikTok Algorithm Part 1</h2>
+                            <p class="text-gray-400 text-sm">በዚህ ቪዲዮ ውስጥ ቪዲዮዎችን እንዴት ቫይራል ማድረግ እንደምንችል እናያለን።</p>
+                        </div>
+
+                        <!-- Assignment Section -->
+                        <div class="bg-blue-900/10 border border-blue-500/30 p-6 rounded-2xl">
+                            <h3 class="font-bold flex items-center gap-2 mb-4 text-blue-400">
+                                <i class="fas fa-edit"></i> የዛሬ ተግባራዊ ስራ
+                            </h3>
+                            <p class="text-sm text-gray-300 mb-4">የመረጥከውን የኒሽ (Niche) ዝርዝር በፒዲኤፍ ወይም በምስል ላክ።</p>
+                            <div class="border-2 border-dashed border-blue-500/20 rounded-xl p-8 text-center bg-blue-950/20">
+                                <i class="fas fa-cloud-upload-alt text-3xl mb-2 text-blue-500"></i>
+                                <p class="text-xs text-gray-400">ፋይሉን እዚህ ይጎትቱ ወይም <span class="text-blue-400 underline cursor-pointer font-bold">ፋይል ይምረጡ</span></p>
+                            </div>
+                            <button class="w-full mt-4 bg-green-600 hover:bg-green-700 py-3 rounded-xl font-bold transition shadow-lg">የቤት ስራውን አስረክብ</button>
+                        </div>
+                    </div>
+
+                    <!-- Curriculum List -->
+                    <div class="space-y-4">
+                        <div class="glass p-4 rounded-2xl">
+                            <h3 class="font-bold text-sm text-green-500 mb-4 uppercase tracking-widest">የትምህርቱ ዝርዝር</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                                    <span class="text-sm font-medium">1. መግቢያ</span>
