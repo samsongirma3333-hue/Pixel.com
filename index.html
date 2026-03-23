@@ -264,3 +264,72 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Secure & Multimedia Website</title>
+
+    <!-- 1. የደህንነት መጠናከሪያ (Security Headers) -->
+    <!-- Content Security Policy (CSP): ያልተፈቀዱ ስክሪፕቶች እንዳይሰሩ ይከላከላል -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; child-src 'none';">
+    <!-- X-Content-Type-Options: ብሮውዘሩ ፋይሎችን በተሳሳተ መንገድ እንዳይተረጉም ይከላከላል -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <!-- Referrer-Policy: ከድረ-ገጽህ ወደ ሌላ ሲሄዱ የሚላከውን መረጃ ይገድባል -->
+    <meta name="referrer" content="no-referrer">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Modern Site</h1>
+    </header>
+
+    <main>
+        <!-- 2. አዳዲስ ነገሮች ማስገቢያ (Latest Multimedia Tags) -->
+        
+        <!-- የፎቶ ማስገቢያ (Responsive Image with Figure) -->
+        <section>
+            <h2>Featured Image</h2>
+            <figure>
+                <picture>
+                    <!-- ለተለያዩ ስክሪኖች የተለያዩ ጥራት ያላቸው ፎቶዎች (አማራጭ) -->
+                    <source srcset="image-large.webp" media="(min-width: 800px)">
+                    <!-- loading="lazy" ፎቶው ስክሪኑ ላይ እስኪደርስ እንዳይጫን በማድረግ ድረ-ገጹን ፈጣን ያደርገዋል -->
+                    <img src="your-photo.jpg" alt="Description of photo" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </picture>
+                <figcaption>ይህ የፎቶው ማብራሪያ (Caption) ነው</figcaption>
+            </figure>
+        </section>
+
+        <!-- የቪዲዮ ማስገቢያ (Modern Video Tag) -->
+        <section>
+            <h2>Latest Video</h2>
+            <div class="video-container">
+                <!-- controls: ቪዲዮውን ለማቆም/ለማስጀመር ይረዳል -->
+                <video width="100%" height="auto" controls poster="video-placeholder.jpg" preload="metadata">
+                    <source src="your-video.mp4" type="video/mp4">
+                    <source src="your-video.webm" type="video/webm">
+                    የእርስዎ ብሮውዘር ይህን ቪዲዮ አይከፍትም (Fallback text).
+                </video>
+            </div>
+        </section>
+
+        <!-- ደህንነቱ የተጠበቀ ሊንክ (Secure External Link) -->
+        <section>
+            <p>ለበለጠ መረጃ፦ 
+                <a href="https://example.com" target="_blank" rel="noopener noreferrer">ይህንን ይጫኑ</a>
+                <!-- rel="noopener noreferrer" አዲስ ታብ ሲከፈት ደህንነቱ የተጠበቀ እንዲሆን ያደርጋል -->
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Secure Site</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
