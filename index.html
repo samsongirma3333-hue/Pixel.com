@@ -1,248 +1,146 @@
-Html
-Copy code
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pixel Academy</title>
 <style>
-body { margin:0; font-family:Arial; background:#f5f7fb; }
-header { display:flex; justify-content:space-between; padding:20px; background:white; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-header h1 { color:#0a66ff; }
-nav a { margin:0 10px; text-decoration:none; color:#333; }
-
-.hero {
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(to right, #0a66ff, #00c6ff);
-  color:white;
-}
-.hero h2 { font-size:40px; }
-.btn {
-  background:white;
-  color:#0a66ff;
-  padding:12px 25px;
-  text-decoration:none;
-  border-radius:5px;
-}
-
-.courses {
-  display:flex;
-  gap:20px;
-  padding:40px;
-}
-.card {
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  width:30%;
-  box-shadow:0 5px 10px rgba(0,0,0,0.1);
-}
+body { margin:0; font-family: Arial, sans-serif; background:#f5f7fb; }
+header { display:flex; justify-content:space-between; align-items:center; padding:20px; background:#0a66ff; color:white; }
+header h1 { margin:0; font-size:24px; }
+nav a { color:white; margin-left:15px; text-decoration:none; font-weight:bold; }
+.hero { text-align:center; padding:60px 20px; background:linear-gradient(to right,#0a66ff,#00c6ff); color:white; }
+.hero h2 { font-size:36px; margin-bottom:10px; }
+.hero p { font-size:18px; margin-bottom:20px; }
+.btn { background:white; color:#0a66ff; padding:12px 25px; text-decoration:none; border-radius:5px; font-weight:bold; cursor:pointer; }
+.courses { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:40px; }
+.card { background:white; padding:20px; border-radius:10px; width:300px; box-shadow:0 5px 10px rgba(0,0,0,0.1); text-align:center; }
+.card h3 { margin-top:0; }
+footer { text-align:center; padding:20px; background:#0a66ff; color:white; margin-top:40px; }
+input, button { padding:10px; margin:5px 0; width:100%; border-radius:5px; border:1px solid #ddd; }
+button { background:#0a66ff; color:white; border:none; font-weight:bold; cursor:pointer; }
+@media(max-width:768px){ .courses { flex-direction:column; align-items:center; } .card { width:80%; } }
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Pixel Academy</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="courses.html">Courses</a>
-    <a href="login.html">Login</a>
-  </nav>
+<h1>Pixel Academy</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#login">Login</a>
+</nav>
 </header>
 
-<section class="hero">
-  <h2>Master AI, Video Editing & Content Creation</h2>
-  <p>Start your digital career today</p>
-  <a href="courses.html" class="btn">Start Learning</a>
+<section class="hero" id="home">
+<h2>Learn AI, YouTube & TikTok Skills</h2>
+<p>Start your digital career today!</p>
+<a href="#courses" class="btn">Start Learning</a>
 </section>
 
-<section class="courses">
-  <div class="card">
-    <h3>AI Course</h3>
-    <p>Learn AI step by step</p>
-  </div>
-
-  <div class="card">
-    <h3>Video Editing</h3>
-    <p>Become a pro editor</p>
-  </div>
-
-  <div class="card">
-    <h3>Content Creation</h3>
-    <p>Grow your audience</p>
-  </div>
+<section class="courses" id="courses">
+<div class="card">
+<h3>AI Course</h3>
+<p>Learn Artificial Intelligence step by step</p>
+<a href="#dashboard" class="btn">Enroll</a>
+</div>
+<div class="card">
+<h3>YouTube Course</h3>
+<p>Become a professional YouTuber</p>
+<a href="#dashboard" class="btn">Enroll</a>
+</div>
+<div class="card">
+<h3>TikTok Course</h3>
+<p>Create viral TikTok content</p>
+<a href="#dashboard" class="btn">Enroll</a>
+</div>
 </section>
 
-</body>
-</html>
-🔹 2. Courses Page
-Html
-Copy code
-<!DOCTYPE html>
-<html>
-<head>
-<title>Courses</title>
-</head>
-<body>
-
-<h1>Our Courses</h1>
-
-<div>
-  <h2>AI Course</h2>
-  <p>Learn Artificial Intelligence</p>
-  <a href="course-ai.html">View Course</a>
-</div>
-
-<div>
-  <h2>Video Editing</h2>
-  <p>Master editing tools</p>
-  <a href="#">View Course</a>
-</div>
-
-</body>
-</html>
-🔹 3. Course Detail Page (Video)
-Html
-Copy code
-<!DOCTYPE html>
-<html>
-<head><title>AI Course</title></head>
-<body>
-
-<h1>AI Course</h1>
-
-<iframe width="600" height="300"
-src="https://www.youtube.com/embed/YOUR_VIDEO_ID">
-</iframe>
-
-<p>Lesson 1: Introduction</p>
-
-</body>
-</html>
-🔹 4. Login Page
-Html
-Copy code
-<!DOCTYPE html>
-<html>
-<head><title>Login</title></head>
-<body>
-
-<h2>Login</h2>
-
-<input type="email" placeholder="Email"><br><br>
-<input type="password" placeholder="Password"><br><br>
-
-<button>Login</button>
-
-</body>
-</html>
-Html
-Copy code
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-</head>
-<body>
-
+<section id="login" style="padding:40px; max-width:400px; margin:0 auto;">
 <h2>Login / Signup</h2>
-
-<input type="email" id="email" placeholder="Email"><br><br>
-<input type="password" id="password" placeholder="Password"><br><br>
-
+<input type="email" id="email" placeholder="Email"><br>
+<input type="password" id="password" placeholder="Password"><br>
 <button onclick="signup()">Sign Up</button>
 <button onclick="login()">Login</button>
+</section>
 
+<section id="dashboard" style="padding:40px; max-width:600px; margin:0 auto; display:none;">
+<h2>Dashboard</h2>
+<p>Welcome to Pixel Academy! 🎓</p>
+<ul>
+<li><a href="#">AI Course</a></li>
+<li><a href="#">YouTube Course</a></li>
+<li><a href="#">TikTok Course</a></li>
+</ul>
+<button onclick="logout()">Logout</button>
+</section>
+
+<footer>
+<p>© 2026 Pixel Academy. All Rights Reserved.</p>
+</footer>
+
+<!-- Firebase JS -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-
 <script>
+// Firebase Config
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com"
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
-
 firebase.initializeApp(firebaseConfig);
 
+// DOM Elements
+const dashboard = document.getElementById("dashboard");
+const loginSection = document.getElementById("login");
+
+// Signup Function
 function signup(){
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-
   firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then(() => alert("Account created!"))
+  .then(() => alert("Account created! Please login."))
   .catch(err => alert(err.message));
 }
 
+// Login Function
 function login(){
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then(() => {
     alert("Login successful!");
-    window.location.href = "dashboard.html";
+    loginSection.style.display = "none";
+    dashboard.style.display = "block";
   })
   .catch(err => alert(err.message));
 }
-</script>
 
-</body>
-</html>
-🔹 3. Dashboard Page (Students Area)
-👉 dashboard.html
-Html
-Copy code
-<!DOCTYPE html>
-<html>
-<head>
-<title>Dashboard</title>
-</head>
-<body>
-
-<h1>Welcome to Pixel Academy 🎓</h1>
-
-<h3>My Courses</h3>
-
-<ul>
-  <li><a href="course-ai.html">AI Course</a></li>
-  <li>Video Editing</li>
-  <li>Content Creation</li>
-</ul>
-
-<button onclick="logout()">Logout</button>
-
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-
-<script>
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com"
-};
-
-firebase.initializeApp(firebaseConfig);
-
+// Logout
 function logout(){
   firebase.auth().signOut().then(()=>{
-    alert("Logged out");
-    window.location.href = "login.html";
+    alert("Logged out!");
+    dashboard.style.display = "none";
+    loginSection.style.display = "block";
   });
 }
-</script>
 
-</body>
-</html>
-🔹 4. Protect Page (Login ካልሆነ አይግባ)
-👉 course-ai.html ላይ ይጨምር:
-Html
-Copy code
-<script>
+// Protect Dashboard
 firebase.auth().onAuthStateChanged(user => {
-  if(!user){
-    alert("Please login first");
-    window.location.href = "login.html";
+  if(user){
+    loginSection.style.display = "none";
+    dashboard.style.display = "block";
+  } else {
+    loginSection.style.display = "block";
+    dashboard.style.display = "none";
   }
 });
 </script>
+
+</body>
+</html>
