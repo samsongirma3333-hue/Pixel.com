@@ -1,335 +1,140 @@
-
-<!DOCTYPE html>
-<html lang="am">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Pixel Academy | Premium Tech Education</title>
-    <!-- Tailwind CSS & Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020205; color: white; scroll-behavior: smooth; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .pixel-gradient { background: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-primary { background: linear-gradient(90deg, #007cf0, #00dfd8); transition: 0.4s ease-in-out; }
-        .btn-primary:hover { box-shadow: 0 0 30px rgba(0, 124, 240, 0.5); transform: translateY(-2px); }
-        .course-card:hover { border-color: #007cf0; background: rgba(0, 124, 240, 0.05); transform: translateY(-5px); transition: 0.3s; }
-        .hidden-section { display: none; }
-        .video-active { border: 2px solid #007cf0; background: rgba(0, 124, 240, 0.1); }
-        iframe { border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020205; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-    </style>
-</head>
-<body>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-16 flex justify-between items-center border-b border-white/5">
-        <div class="text-xl md:text-2xl font-black tracking-tighter cursor-pointer" onclick="showSection('home')">
-            ETHIO <span class="pixel-gradient">PIXEL</span>
-        </div>
-        <div class="hidden md:flex space-x-10 font-bold text-xs uppercase tracking-widest">
-            <button onclick="showSection('home')" class="hover:text-blue-400 transition">መነሻ</button>
-            <button onclick="showSection('academy')" class="hover:text-blue-400 transition">አካዳሚ</button>
-            <button onclick="showSection('updates')" class="hover:text-blue-400 transition">መረጃዎች</button>
-        </div>
-        <button onclick="showSection('payment')" class="btn-primary px-8 py-2.5 rounded-full font-bold text-sm">ምዝገባ</button>
-    </nav>
-
-    <main class="pt-24">
-
-        <!-- SECTION: HOME -->
-        <section id="home-section" class="px-6 md:px-16">
-            <div class="py-24 text-center">
-                <h1 class="text-6xl md:text-[110px] font-black leading-none mb-8 tracking-tighter">BUILD YOUR <br> <span class="pixel-gradient">FUTURE</span></h1>
-                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed italic">
-                    "በኢትዮጵያ ቀዳሚው የ AI፣ YouTube እና TikTok ስልጠና ማዕከል። የዲጂታል ነጻነትዎን በፒክሰል አካዳሚ ያረጋግጡ።"
-                </p>
-                <div class="flex justify-center gap-6">
-                    <button onclick="showSection('academy')" class="btn-primary px-12 py-5 rounded-2xl font-black text-lg">ትምህርት ጀምር</button>
-                    <button onclick="document.getElementById('about').scrollIntoView()" class="glass px-12 py-5 rounded-2xl font-black text-lg border border-white/10 hover:bg-white/5">ስለ እኛ</button>
-                </div>
-            </div>
-
-            <!-- Mission & Vision -->
-            <div id="about" class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 py-32 border-t border-white/5">
-                <div class="glass p-12 rounded-[40px] relative group">
-                    <div class="absolute -top-6 -left-6 w-20 h-20 bg-blue-600/20 blur-3xl group-hover:bg-blue-600/40 transition"></div>
-                    <h3 class="text-3xl font-black mb-6 italic"><i class="fas fa-rocket text-blue-500 mr-4"></i>ተልዕኮ (Mission)</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed italic">የዘመኑን የዲጂታል እውቀት ለሁሉም ኢትዮጵያውያን በተግባር የተደገፈ እና ተደራሽ በሆነ መንገድ በማስተማር የቴክኖሎጂ ባለቤት ማድረግ።</p>
-                </div>
-                <div class="glass p-12 rounded-[40px] relative group">
-                    <div class="absolute -top-6 -left-6 w-20 h-20 bg-cyan-600/20 blur-3xl group-hover:bg-cyan-600/40 transition"></div>
-                    <h3 class="text-3xl font-black mb-6 italic"><i class="fas fa-eye text-cyan-400 mr-4"></i>ራዕይ (Vision)</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed italic">በ2030 በኢትዮጵያ ቀዳሚው እና በሺዎች የሚቆጠሩ የዲጂታል ስራ ፈጣሪዎችን ያፈራ የቴክኖሎጂ አካዳሚ መሆን።</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: ACADEMY -->
-        <section id="academy-section" class="hidden-section px-6 md:px-16 py-12">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-black mb-6 italic tracking-tighter">የስልጠና <span class="pixel-gradient">ማዕከል</span></h2>
-                <div class="flex flex-wrap justify-center gap-4 mt-10">
-                    <button onclick="renderCourses('ai')" class="px-10 py-4 rounded-2xl glass hover:bg-blue-600 font-black border border-blue-500/30 tracking-widest text-xs uppercase">AI Academy</button>
-                    <button onclick="renderCourses('youtube')" class="px-10 py-4 rounded-2xl glass hover:bg-red-600 font-black border border-red-500/30 tracking-widest text-xs uppercase">YouTube Mastery</button>
-                    <button onclick="renderCourses('tiktok')" class="px-10 py-4 rounded-2xl glass hover:bg-purple-600 font-black border border-purple-500/30 tracking-widest text-xs uppercase">TikTok Strategy</button>
-                </div>
-            </div>
-            <div id="course-grid" class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- SECTION: VIDEO PLAYER -->
-        <section id="video-section" class="hidden-section px-6 md:px-16 py-12">
-            <button onclick="showSection('academy')" class="mb-10 text-blue-400 font-bold hover:text-white flex items-center">
-                <i class="fas fa-arrow-left mr-3"></i> ወደ ኮርሶች ተመለስ
-            </button>
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-10">
-                <div class="lg:col-span-2">
-                    <div id="video-frame-container" class="aspect-video w-full bg-black rounded-[32px] overflow-hidden shadow-2xl border border-white/5 shadow-blue-500/5">
-                        <!-- Iframe will be injected here -->
-                    </div>
-                    <h2 id="video-display-title" class="text-4xl font-black mt-10 leading-tight">Course Title</h2>
-                    <p class="text-gray-500 mt-6 text-lg italic border-l-4 border-blue-600 pl-6 leading-relaxed">ይህ ስልጠና ደረጃውን የጠበቀ እና ለስራ በሚያዘጋጅ መልኩ የተዘጋጀ ነው። እያንዳንዱን ክፍል በጥንቃቄ ይከታተሉ።</p>
-                </div>
-                <div class="glass p-8 rounded-[40px] h-fit">
-                    <h3 class="font-black text-xl mb-8 uppercase tracking-tighter flex items-center">
-                        <i class="fas fa-list-ul mr-4 text-blue-500"></i> የትምህርት ዝርዝር
-                    </h3>
-                    <div id="playlist-container" class="space-y-4">
-                        <!-- Playlist items injected here -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: UPDATES -->
-        <section id="updates-section" class="hidden-section px-6 md:px-16 py-12">
-            <h2 class="text-4xl font-black mb-16 italic text-center uppercase tracking-tighter">አዳዲስ ሀሳቦች <span class="pixel-gradient">&</span> ዜናዎች</h2>
-            <div class="max-w-4xl mx-auto space-y-10">
-                <div class="glass p-10 rounded-[40px] flex flex-col md:flex-row gap-10 items-center border-l-8 border-blue-600">
-                    <div class="w-full md:w-64 h-48 bg-gradient-to-br from-blue-900/20 to-black rounded-3xl flex items-center justify-center border border-white/10">
-                        <i class="fas fa-play-circle text-5xl text-blue-500"></i>
-                    </div>
-                    <div>
-                        <span class="bg-blue-600/20 text-blue-400 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">Video Update</span>
-                        <h3 class="text-3xl font-black mt-5 mb-4 leading-tight">በ 2024 በ AI እንዴት ገቢ ማግኘት ይቻላል?</h3>
-                        <p class="text-gray-500 italic">የቅርብ ጊዜ የ AI አዝማሚያዎችን የዳሰስንበት አጭር ቪድዮ...</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: PAYMENT -->
-        <section id="payment-section" class="hidden-section px-6 md:px-16 py-20 flex justify-center">
-            <div class="glass max-w-2xl w-full p-12 rounded-[50px] border border-blue-500/20">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-black mb-4">የአባልነት ምዝገባ</h2>
-                    <p class="text-gray-500 italic">ከታች ያሉትን አማራጮች በመጠቀም ክፍያዎን ያረጋግጡ</p>
-                </div>
-                <div class="grid grid-cols-2 gap-6 mb-12 font-bold uppercase tracking-widest text-xs">
-                    <div class="p-8 glass rounded-3xl border border-white/5 text-center group hover:border-blue-500 transition">
-                        <i class="fas fa-university text-4xl mb-4 text-blue-500"></i>
-                        <p>CBE Bank</p>
-                        <p class="text-blue-400 mt-2 font-black tracking-normal text-sm">1000XXXXXXXX</p>
-                    </div>
-                    <div class="p-8 glass rounded-3xl border border-white/5 text-center group hover:border-green-500 transition">
-                        <i class="fas fa-mobile-screen text-4xl mb-4 text-green-500"></i>
-                        <p>Telebirr</p>
-                        <p class="text-green-500 mt-2 font-black tracking-normal text-sm">09XXXXXXXX</p>
-                    </div>
-                </div>
-                <form id="paymentForm" class="space-y-6">
-                    <input type="text" placeholder="ሙሉ ስም" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500 font-bold transition">
-                    <input type="text" placeholder="የክፍያ ማረጋገጫ (Transaction ID)" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-blue-500 font-bold transition">
-                    <button type="submit" class="btn-primary w-full p-6 rounded-2xl font-black text-xl mt-4">ምዝገባውን አረጋግጥ</button>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="py-24 border-t border-white/5 text-center px-6">
-        <div class="text-3xl font-black tracking-tighter mb-10">ETHIO <span class="pixel-gradient">PIXEL</span> ACADEMY</div>
-        <div class="flex justify-center space-x-12 text-2xl mb-16 text-gray-500">
-            <i class="fab fa-facebook hover:text-blue-500 cursor-pointer transition"></i>
-            <i class="fab fa-telegram hover:text-cyan-400 cursor-pointer transition"></i>
-            <i class="fab fa-youtube hover:text-red-500 cursor-pointer transition"></i>
-            <i class="fab fa-tiktok hover:text-white cursor-pointer transition"></i>
-        </div>
-        <p class="text-gray-600 font-black text-[10px] uppercase tracking-[0.5em]">&copy; 2024 ALL RIGHTS RESERVED | ETHIO PIXEL ACADEMY</p>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        // ኮርሶችን እና ቪድዮዎችን እዚህ ማስተካከል ትችላለህ
-        const academyData = {
-            'ai': [
-                { 
-                    id: 'ai-1', title: 'Generative AI Masterclass', 
-                    desc: 'ChatGPT እና መሰል የ AI መሳሪያዎችን መጠቀም።',
-                    playlist: [
-                        { name: "ክፍል 1: መግቢያ", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-                        { name: "ክፍል 2: Prompt Engineering", url: "https://www.youtube.com/embed/placeholder1" }
-                    ]
-                },
-                { id: 'ai-2', title: 'AI for Business', desc: 'AIን ለስራ እና ለንግድ መጠቀም።', playlist: [{ name: "መግቢያ", url: "" }] }
-            ],
-            'youtube': [
-                { 
-                    id: 'yt-1', title: 'YouTube Growth Secrets', 
-                    desc: 'ቻናልን በፍጥነት ማሳደግ የሚያስችሉ ጥበቦች።',
-                    playlist: [
-                        { name: "ክፍል 1: ኒች መምረጥ", url: "https://www.youtube.com/embed/placeholder2" }
-                    ]
-                }
-            ],
-            'tiktok': [
-                { 
-                    id: 'tk-1', title: 'TikTok Viral Strategy', 
-                    desc: 'እንዴት ቪድዮዎችዎ Viral ይሆናሉ?',
-                    playlist: [
-                        { name: "ክፍል 1: Algorithm", url: "https://www.youtube.com/embed/placeholder3" }
-                    ]
-                }
-            ]
-        };
-
-        function showSection(sectionId) {
-            const sections = ['home', 'academy', 'video', 'updates', 'payment'];
-            sections.forEach(s => document.getElementById(s + '-section').classList.add('hidden-section'));
-            document.getElementById(sectionId + '-section').classList.remove('hidden-section');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-            if(sectionId === 'academy') renderCourses('ai');
-        }
-
-        function renderCourses(category) {
-            const grid = document.getElementById('course-grid');
-            grid.innerHTML = '';
-            academyData[category].forEach(course => {
-                grid.innerHTML += `
-                    <div class="glass p-10 rounded-[40px] course-card border border-white/5 cursor-pointer group" onclick="loadVideoHub('${category}', '${course.id}')">
-                        <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition">
-                            <i class="fas ${category === 'ai' ? 'fa-microchip text-blue-500' : category === 'youtube' ? 'fa-play text-red-500' : 'fa-bolt text-yellow-400'} text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-black mb-4 tracking-tighter uppercase">${course.title}</h3>
-                        <p class="text-gray-500 italic text-sm mb-10 leading-relaxed">${course.desc}</p>
-                        <div class="flex items-center text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">ትምህርት ጀምር <i class="fas fa-arrow-right ml-4"></i></div>
-                    </div>
-                `;
-            });
-        }
-
-        function loadVideoHub(category, courseId) {
-            const course = academyData[category].find(c => c.id === courseId);
-            showSection('video');
-            document.getElementById('video-display-title').innerText = course.title;
-            
-            const playlist = document.getElementById('playlist-container');
-            playlist.innerHTML = '';
-            
-            course.playlist.forEach((vid, idx) => {
-                const isFirst = idx === 0;
-                playlist.innerHTML += `
-                    <div class="p-5 glass rounded-2xl flex items-center cursor-pointer transition ${isFirst ? 'video-active' : 'opacity-40'}" onclick="changeVideo('${vid.url}', this)">
-                        <i class="fas ${isFirst ? 'fa-play-circle text-blue-500' : 'fa-lock'} mr-4 text-xl"></i>
-                        <span class="font-bold text-sm">${vid.name}</span>
-                    </div>
-                `;
-                if(isFirst) changeVideo(vid.url);
-            });
-        }
-
-        function changeVideo(url, el) {
-            if(!url) return;
-            document.getElementById('video-frame-container').innerHTML = `<iframe width="100%" height="100%" src="${url}" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-            if(el) {
-                document.querySelectorAll('#playlist-container div').forEach(d => {
-                    d.classList.remove('video-active');
-                    d.classList.add('opacity-40');
-                });
-                el.classList.add('video-active');
-                el.classList.remove('opacity-40');
-            }
-        }
-
-        // Initialize Home
-        showSection('home');
-    </script>
-</body>
-</html>
+Html
+Copy code
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Secure & Multimedia Website</title>
+<meta charset="UTF-8">
+<title>Pixel Academy</title>
+<style>
+body { margin:0; font-family:Arial; background:#f5f7fb; }
+header { display:flex; justify-content:space-between; padding:20px; background:white; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+header h1 { color:#0a66ff; }
+nav a { margin:0 10px; text-decoration:none; color:#333; }
 
-    <!-- 1. የደህንነት መጠናከሪያ (Security Headers) -->
-    <!-- Content Security Policy (CSP): ያልተፈቀዱ ስክሪፕቶች እንዳይሰሩ ይከላከላል -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; child-src 'none';">
-    <!-- X-Content-Type-Options: ብሮውዘሩ ፋይሎችን በተሳሳተ መንገድ እንዳይተረጉም ይከላከላል -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <!-- Referrer-Policy: ከድረ-ገጽህ ወደ ሌላ ሲሄዱ የሚላከውን መረጃ ይገድባል -->
-    <meta name="referrer" content="no-referrer">
+.hero {
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(to right, #0a66ff, #00c6ff);
+  color:white;
+}
+.hero h2 { font-size:40px; }
+.btn {
+  background:white;
+  color:#0a66ff;
+  padding:12px 25px;
+  text-decoration:none;
+  border-radius:5px;
+}
 
-    <link rel="stylesheet" href="style.css">
+.courses {
+  display:flex;
+  gap:20px;
+  padding:40px;
+}
+.card {
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  width:30%;
+  box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Pixel Academy</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Master AI, Video Editing & Content Creation</h2>
+  <p>Start your digital career today</p>
+  <a href="courses.html" class="btn">Start Learning</a>
+</section>
+
+<section class="courses">
+  <div class="card">
+    <h3>AI Course</h3>
+    <p>Learn AI step by step</p>
+  </div>
+
+  <div class="card">
+    <h3>Video Editing</h3>
+    <p>Become a pro editor</p>
+  </div>
+
+  <div class="card">
+    <h3>Content Creation</h3>
+    <p>Grow your audience</p>
+  </div>
+</section>
+
+</body>
+</html>
+🔹 2. Courses Page
+Html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+<title>Courses</title>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Modern Site</h1>
-    </header>
+<h1>Our Courses</h1>
 
-    <main>
-        <!-- 2. አዳዲስ ነገሮች ማስገቢያ (Latest Multimedia Tags) -->
-        
-        <!-- የፎቶ ማስገቢያ (Responsive Image with Figure) -->
-        <section>
-            <h2>Featured Image</h2>
-            <figure>
-                <picture>
-                    <!-- ለተለያዩ ስክሪኖች የተለያዩ ጥራት ያላቸው ፎቶዎች (አማራጭ) -->
-                    <source srcset="image-large.webp" media="(min-width: 800px)">
-                    <!-- loading="lazy" ፎቶው ስክሪኑ ላይ እስኪደርስ እንዳይጫን በማድረግ ድረ-ገጹን ፈጣን ያደርገዋል -->
-                    <img src="your-photo.jpg" alt="Description of photo" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
-                </picture>
-                <figcaption>ይህ የፎቶው ማብራሪያ (Caption) ነው</figcaption>
-            </figure>
-        </section>
+<div>
+  <h2>AI Course</h2>
+  <p>Learn Artificial Intelligence</p>
+  <a href="course-ai.html">View Course</a>
+</div>
 
-        <!-- የቪዲዮ ማስገቢያ (Modern Video Tag) -->
-        <section>
-            <h2>Latest Video</h2>
-            <div class="video-container">
-                <!-- controls: ቪዲዮውን ለማቆም/ለማስጀመር ይረዳል -->
-                <video width="100%" height="auto" controls poster="video-placeholder.jpg" preload="metadata">
-                    <source src="your-video.mp4" type="video/mp4">
-                    <source src="your-video.webm" type="video/webm">
-                    የእርስዎ ብሮውዘር ይህን ቪዲዮ አይከፍትም (Fallback text).
-                </video>
-            </div>
-        </section>
+<div>
+  <h2>Video Editing</h2>
+  <p>Master editing tools</p>
+  <a href="#">View Course</a>
+</div>
 
-        <!-- ደህንነቱ የተጠበቀ ሊንክ (Secure External Link) -->
-        <section>
-            <p>ለበለጠ መረጃ፦ 
-                <a href="https://example.com" target="_blank" rel="noopener noreferrer">ይህንን ይጫኑ</a>
-                <!-- rel="noopener noreferrer" አዲስ ታብ ሲከፈት ደህንነቱ የተጠበቀ እንዲሆን ያደርጋል -->
-            </p>
-        </section>
-    </main>
+</body>
+</html>
+🔹 3. Course Detail Page (Video)
+Html
+Copy code
+<!DOCTYPE html>
+<html>
+<head><title>AI Course</title></head>
+<body>
 
-    <footer>
-        <p>&copy; 2024 My Secure Site</p>
-    </footer>
+<h1>AI Course</h1>
 
-    <script src="script.js"></script>
+<iframe width="600" height="300"
+src="https://www.youtube.com/embed/YOUR_VIDEO_ID">
+</iframe>
+
+<p>Lesson 1: Introduction</p>
+
+</body>
+</html>
+🔹 4. Login Page
+Html
+Copy code
+<!DOCTYPE html>
+<html>
+<head><title>Login</title></head>
+<body>
+
+<h2>Login</h2>
+
+<input type="email" placeholder="Email"><br><br>
+<input type="password" placeholder="Password"><br><br>
+
+<button>Login</button>
+
 </body>
 </html>
