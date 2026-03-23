@@ -1,4 +1,219 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethio Pixel Academy | All-in-One Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: white; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .pixel-gradient { background: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .course-card:hover { transform: translateY(-5px); border-color: #007cf0; transition: 0.3s; cursor: pointer; }
+        .hidden-section { display: none; }
+        .active-link { color: #007cf0; border-bottom: 2px solid #007cf0; }
+        .video-container { aspect-ratio: 16/9; background: #000; border-radius: 20px; overflow: hidden; position: relative; }
+    </style>
+</head>
+<body>
 
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-xl md:text-2xl font-extrabold tracking-tighter cursor-pointer" onclick="showSection('home')">
+            ETHIO <span class="pixel-gradient">PIXEL</span> ACADEMY
+        </div>
+        <div class="hidden md:flex space-x-8 font-medium">
+            <button onclick="showSection('home')" class="hover:text-blue-400 transition">መነሻ</button>
+            <button onclick="showSection('academy')" class="hover:text-blue-400 transition">አካዳሚ</button>
+            <button onclick="showSection('updates')" class="hover:text-blue-400 transition">መረጃዎች</button>
+        </div>
+        <button onclick="showSection('payment')" class="bg-blue-600 px-6 py-2 rounded-full font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-500/20 text-sm">ክፍያ ፈጽም</button>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="pt-24">
+
+        <!-- SECTION 1: HOME (Mission/Vision) -->
+        <section id="home-section" class="min-h-screen px-6 md:px-12">
+            <!-- Hero -->
+            <div class="flex flex-col items-center text-center py-20">
+                <h1 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tight">የወደፊቱን በ <span class="pixel-gradient">ፒክሰል</span> ይሳሉ</h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-3xl mb-12">በኢትዮጵያ ቀዳሚው የ AI፣ YouTube እና TikTok ስልጠና ማዕከል። ዛሬ ይማሩ፣ ነገ ይምሩ።</p>
+                <button onclick="showSection('academy')" class="bg-white text-black px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-transform">ትምህርት ለመጀመር ይጫኑ</button>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 py-20">
+                <div class="glass p-10 rounded-3xl">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 text-blue-500"><i class="fas fa-bullseye text-2xl"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 italic text-blue-400">ተልዕኮ (Mission)</h3>
+                    <p class="text-gray-400 leading-relaxed">የዘመኑን የዲጂታል እውቀት ለሁሉም ኢትዮጵያውያን በተግባር የተደገፈ እና ተደራሽ በሆነ መንገድ በማስተማር የቴክኖሎጂ ባለቤት ማድረግ።</p>
+                </div>
+                <div class="glass p-10 rounded-3xl">
+                    <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6 text-cyan-400"><i class="fas fa-eye text-2xl"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 italic text-cyan-400">ራዕይ (Vision)</h3>
+                    <p class="text-gray-400 leading-relaxed">በ2030 በኢትዮጵያ ቀዳሚው እና በሺዎች የሚቆጠሩ የዲጂታል ስራ ፈጣሪዎችን ያፈራ የቴክኖሎጂ አካዳሚ መሆን።</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ACADEMY (Course Navigator) -->
+        <section id="academy-section" class="hidden-section min-h-screen px-6 md:px-12">
+            <h2 class="text-4xl font-bold mb-12 text-center">የስልጠና <span class="pixel-gradient">ማዕከል</span></h2>
+            
+            <!-- Category Tabs -->
+            <div class="flex justify-center space-x-4 mb-12">
+                <button onclick="filterCourses('ai')" class="px-8 py-3 rounded-xl glass hover:bg-blue-600 transition font-bold border border-blue-500/30">Artificial Intelligence</button>
+                <button onclick="filterCourses('youtube')" class="px-8 py-3 rounded-xl glass hover:bg-red-600 transition font-bold border border-red-500/30">YouTube</button>
+                <button onclick="filterCourses('tiktok')" class="px-8 py-3 rounded-xl glass hover:bg-purple-600 transition font-bold border border-purple-500/30">TikTok</button>
+            </div>
+
+            <!-- Course Cards Grid -->
+            <div id="course-grid" class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 pb-20">
+                <!-- Courses will be injected here by JS -->
+            </div>
+        </section>
+
+        <!-- SECTION 3: VIDEO PLAYER VIEW -->
+        <section id="video-section" class="hidden-section min-h-screen px-6 md:px-12 pb-20">
+            <button onclick="showSection('academy')" class="mb-8 text-blue-400 hover:text-white"><i class="fas fa-arrow-left mr-2"></i> ወደ ኮርሶች ተመለስ</button>
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="video-container flex items-center justify-center shadow-2xl shadow-blue-500/10 border border-white/10">
+                        <i class="fas fa-play-circle text-8xl text-white/20 hover:text-blue-500 cursor-pointer transition"></i>
+                    </div>
+                    <h2 id="video-title" class="text-3xl font-bold mt-8">የኮርሱ ርዕስ እዚህ ጋር ይቀመጣል</h2>
+                    <p class="text-gray-400 mt-4 leading-relaxed">ይህ ትምህርት በተግባር የተደገፈ እና ደረጃውን የጠበቀ ነው። ሁሉንም ክፍሎች በጥንቃቄ ይከታተሉ።</p>
+                </div>
+                <div class="glass p-6 rounded-3xl h-fit">
+                    <h3 class="text-xl font-bold mb-6 border-b border-white/10 pb-4">የኮርሱ ዝርዝር (Playlist)</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 glass rounded-xl cursor-pointer hover:bg-white/5"><i class="fas fa-play-circle mr-3 text-blue-500"></i> ክፍል 1፡ መግቢያ</div>
+                        <div class="flex items-center p-3 rounded-xl cursor-pointer hover:bg-white/5 opacity-60"><i class="fas fa-lock mr-3"></i> ክፍል 2፡ መሰረታዊ ህጎች</div>
+                        <div class="flex items-center p-3 rounded-xl cursor-pointer hover:bg-white/5 opacity-60"><i class="fas fa-lock mr-3"></i> ክፍል 3፡ ተግባራዊ ስራ</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: UPDATES & NEWS -->
+        <section id="updates-section" class="hidden-section min-h-screen px-6 md:px-12 pb-20">
+            <h2 class="text-4xl font-bold mb-12 italic">አዳዲስ ሀሳቦች እና <span class="pixel-gradient">ዜናዎች</span></h2>
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div class="glass p-8 rounded-3xl flex flex-col md:flex-row gap-8 items-center border-l-8 border-blue-500">
+                    <div class="w-full md:w-64 h-40 bg-gray-800 rounded-2xl flex items-center justify-center font-bold">VIDEO PREVIEW</div>
+                    <div class="flex-1">
+                        <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-xs font-bold uppercase">Video Update</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-2">በ 2024 በ AI እንዴት ውጤታማ መሆን ይቻላል?</h3>
+                        <p class="text-gray-400 italic">አዳዲስ የቴክኖሎጂ አዝማሚያዎችን የዳሰስንበት አጭር ቪድዮ...</p>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-8 border-gray-600">
+                    <span class="bg-gray-600/20 text-gray-400 px-3 py-1 rounded-full text-xs font-bold uppercase">Text Article</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-2">የዩቲዩብ ፖሊሲ ለውጦች እና በኢትዮጵያ ያለው ተፅዕኖ</h3>
+                    <p class="text-gray-400 italic">የተሻሻሉ የገቢ ማግኛ መንገዶችን የሚገልጽ አጭር ጽሁፍ...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PAYMENT MODAL -->
+        <section id="payment-section" class="hidden-section min-h-screen px-6 md:px-12 flex flex-col items-center justify-center py-20">
+            <div class="glass max-w-2xl w-full p-10 rounded-[40px] border-2 border-blue-500/20 shadow-2xl">
+                <h2 class="text-3xl font-black mb-4 text-center">አባል ይሁኑ</h2>
+                <p class="text-center text-gray-400 mb-10">የመረጡትን ኮርስ ለመጀመር በፈለጉት አማራጭ ክፍያ ይፈጽሙ</p>
+                
+                <div class="grid grid-cols-2 gap-6 mb-10">
+                    <div class="p-6 rounded-3xl border border-white/10 hover:border-blue-500 transition cursor-pointer text-center bg-white/5">
+                        <i class="fas fa-university text-4xl mb-4 text-blue-500"></i>
+                        <h4 class="font-bold">CBE</h4>
+                        <p class="text-xs text-gray-500 mt-2">10002345XXXX</p>
+                    </div>
+                    <div class="p-6 rounded-3xl border border-white/10 hover:border-green-500 transition cursor-pointer text-center bg-white/5">
+                        <i class="fas fa-mobile-screen text-4xl mb-4 text-green-500"></i>
+                        <h4 class="font-bold">Telebirr</h4>
+                        <p class="text-xs text-gray-500 mt-2">0911XXXXXX</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <input type="text" placeholder="ሙሉ ስም" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-blue-500 transition text-white">
+                    <input type="text" placeholder="የክፍያ ማረጋገጫ ቁጥር (Transaction ID)" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-blue-500 transition text-white">
+                    <button class="w-full bg-blue-600 p-4 rounded-xl font-bold text-lg hover:bg-blue-500 transition mt-4">ክፍያ አረጋግጥ</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 mt-20 border-t border-white/5 text-center text-gray-600 px-6">
+        <div class="mb-6 space-x-6 text-xl">
+            <i class="fab fa-facebook hover:text-blue-500 cursor-pointer"></i>
+            <i class="fab fa-telegram hover:text-cyan-500 cursor-pointer"></i>
+            <i class="fab fa-linkedin hover:text-blue-700 cursor-pointer"></i>
+        </div>
+        <p>&copy; 2024 Ethio Pixel Academy. Designed by Professional Expert.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR DYNAMIC FUNCTIONALITY -->
+    <script>
+        const courses = [
+            { category: 'ai', title: 'AI Basics for Beginners', desc: 'የ AI መሰረታዊ እውቀቶች' },
+            { category: 'ai', title: 'Prompt Engineering', desc: 'ከ AI ጋር የመግባቢያ ጥበብ' },
+            { category: 'youtube', title: 'Channel Monetization', desc: 'ዩቲዩብን ወደ ገቢ መለወጫ' },
+            { category: 'youtube', title: 'Professional Video Editing', desc: 'የቪድዮ ኤዲቲንግ ጥበብ' },
+            { category: 'tiktok', title: 'Viral Content Strategy', desc: 'ተከታዮችን ማብዛቂያ መንገዶች' },
+            { category: 'tiktok', title: 'TikTok Marketing', desc: 'ለንግድ ስራ አጠቃቀም' }
+        ];
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = ['home', 'academy', 'video', 'updates', 'payment'];
+            sections.forEach(s => {
+                document.getElementById(s + '-section').classList.add('hidden-section');
+            });
+            // Show target section
+            document.getElementById(sectionId + '-section').classList.remove('hidden-section');
+            window.scrollTo(0,0);
+            
+            if(sectionId === 'academy') filterCourses('ai');
+        }
+
+        function filterCourses(category) {
+            const grid = document.getElementById('course-grid');
+            grid.innerHTML = '';
+            
+            const filtered = courses.filter(c => c.category === category);
+            
+            filtered.forEach(course => {
+                const card = `
+                    <div class="glass p-8 rounded-3xl border border-white/5 course-card" onclick="openVideo('${course.title}')">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas ${category === 'ai' ? 'fa-brain text-blue-400' : category === 'youtube' ? 'fa-play text-red-500' : 'fa-bolt text-purple-400'}"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">${course.title}</h3>
+                        <p class="text-gray-500 text-sm mb-6">${course.desc}</p>
+                        <div class="flex justify-between items-center text-xs font-bold text-blue-400 uppercase tracking-widest">
+                            <span>Watch Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function openVideo(title) {
+            showSection('video');
+            document.getElementById('video-title').innerText = title;
+        }
+
+        // Initialize Home Section
+        showSection('home');
+    </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="am">
 <head>
